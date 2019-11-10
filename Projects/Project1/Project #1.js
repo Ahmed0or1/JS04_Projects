@@ -1,4 +1,9 @@
-
+/**
+ * Ahmed Alghamdi
+ * https://github.com/Ahmed0or1
+ * 
+ **/
+// don't use strict mode :').
 /*
 Unit Project #1: Some Coding Challenges
 Overview
@@ -17,10 +22,10 @@ console.log('\nQ1. Write a function to check if an array contains a particular n
 function Q1function(array,num){
     for (let key in array){
         if(num === array[key])
-        //console.log(`find the number at ${key} index`)  :) just for test
+        //console.log(`find the number at ${key} index`)  //:) just for test
         return true;
     }
-        //console.log(`sorry, we don't have ${array[key]}`) :) just for test
+        //console.log(`sorry, we don't have ${array[key]}`)// :) just for test
         return false;
 }
 console.log(Q1function([1, 2, 3, 4, 5], 3)); //-> true
@@ -73,11 +78,13 @@ var  aquarium = {
 //1- access the value of the capacityInGallons key
 console.log(`Q3...\n1- access the value of the capacityInGallons key\n capacityInGallons= ${aquarium.capacityInGallons}`);
 //2- add 2 rocks to the numberOfRocks in the aquarium
-console.log('Q3...\n2- add 2 rocks to the numberOfRocks in the aquarium');
+console.log(`Q3...\n2- add 2 rocks to the numberOfRocks={${aquarium.numberOfRocks}} in the aquarium`);
 aquarium.numberOfRocks+=2;
 console.log(`\nnumber Of Rocks =  ${aquarium.numberOfRocks}`);
 
 //3- access the clown fish and print the object.-----------------------------------
+
+
 console.log('Q3...\n3- access the clown fish and print the object.');
 let word='clown';
 let Foundd=false;
@@ -120,61 +127,133 @@ newfish={type:'blue starfish',
 
 aquarium.fish.push(newfish);
 console.log(aquarium.fish);
-// Q3-we can use function for_loop() to Found index and return index number..
-
+// Q3-we can use function FindingObj() to Found index and return index number..
+/*
+function FindingObj(word){
+    let word='clown';
+    let Foundd=false;
+for(let i=0; i<aquarium.fish.length ;i++ ){
+        let Vfish =aquarium.fish[i];
+        if(Vfish.type===word){
+            return (aquarium.fish[i]);
+        }else{
+            console.log(`Sorry, not found ${word} in object`);
+        }
+}
+}
+*/
 /*
 Q4. The following JSON object has been provided to you in data.js:
+ 1-This JSON object contains one key value pair, which holds an array of objects. This array of objects is the data we are after.
+    */
+console.log(`Q4-\n1-This JSON object contains one key value pair, which holds an array of objects. This array of objects is the data we are after.`);
 
-    This JSON object contains one key value pair, which holds an array of objects. This array of objects is the data we are after.
+json = (require('./data')); 
+let JSON2="json = (require('./data'));\n";
+ //   2-What to do?
+//        :D
+console.log(`2-What to do?\n^_^`);
+ //   3.Create a main.js file and write the following functions
+ console.log("3.Create a main.js file and write the following functions.");
 
-    What to do?
+//Create a main.js by javaScript :D....
+fs = require('fs');
+fs.writeFile('main.js','console.log("Create a main.js by javaScript :D....")\n', function (err) {
+if (err) 
+    return console.log(err);
+    console.log("The file was saved! with the answers");
+});
 
-3.Create a main.js file and write the following functions
+//    4-Write a function that console.logs each character object in the data.
+console.log("4-Write a function that console.logs each character object in the data.");
 
-    Write a function that console.logs each character object in the data.
-
+//   let logData = function() {
+//   }
 let logData = function() {
+    console.log(json);
 }
-
-    Write a function that console.logs each character's name
-
+logData();                 
+//5-Write a function that console.logs each character's name
+console.log("5-Write a function that console.logs each character's name.");
+//let logNames = function() {
+//};
 let logNames = function() {
+    let obj = JSON.parse(json);
+    for (var i = 0; i < obj.people.length; i++) {
+        console.log(obj.people[i].name);
+    }
 };
-
-    Write a function that console.logs each character's name and eye color
-
+logNames();
+ //6-Write a function that console.logs each character's name and eye color
+ console.log("6-Write a function that console.logs each character's name and eye color.");
+//let logNameEyes = function() {
+//};
 let logNameEyes = function() {
+    let obj = JSON.parse(json);
+    for(var i = 0; i < obj.people.length; i++){
+        console.log(obj.people[i].name + " - " + obj.people[i].eye_color);
+    }
 };
-
-    Write a function that console.logs each character's name whose mass is greater than 75
-
+logNameEyes();
+//7-Write a function that console.logs each character's name whose mass is greater than 75
+console.log("7-Write a function that console.logs each character's name whose mass is greater than 75.");
+//let logByMass = function() {
+//};
 let logByMass = function() {
+    let obj = JSON.parse(json);
+    for(var i = 0; i < obj.people.length; i++){
+        if (obj.people[i].mass > 75){
+            console.log(obj.people[i].name);
+        }
+    }
 };
-
-*/
-
+logByMass();
+ //                    **Bonus Questions:
+//1. Write a function that takes in a parameter called num, and returns a random number between 0 and num. Look up documentation for Math.Random().
+console.log("Bonus Questions:\n1. Write a function that takes in a parameter called num, and returns a random number between 0 and num. Look up documentation for Math.Random()\n");
 
 /*
-**Bonus Questions:
-
-1. Write a function that takes in a parameter called num, and returns a random number between 0 and num. Look up documentation for Math.Random().
-
-Examples
-
+Examples:
 getRandomNum(6) ➞  returns a random number between 0 and 6
 getRandomNumber(10) ➞ returns a random number between 0 and 10
+*/
+function getRandomNum(num) {
+    return Math.floor(Math.random() * Math.floor(num));
+  }
+  
+  console.log(`random number between 0 and 6: ${getRandomNum(6)}`);
+  console.log(`random number between 0 and 10: ${getRandomNum(10)}`);
 
-2. A leap year has one day added to February for being synchronized with the seasonal year. A leap year appears with a regular frequency, which is determined by the rule below:
 
-The year is exactly divisible by 400, or exactly divisible by 4 and not exactly divisible by 100. Given a year you must implement a function that returns true if it's a leap year, or false if it's not.
-
+//2. A leap year has one day added to February for being synchronized with the seasonal year. A leap year appears with a regular frequency, which is determined by the rule below:
+console.log("2. A leap year has one day added to February for being synchronized with the seasonal year. A leap year appears with a regular frequency, which is determined by the rule below:");
+//The year is exactly divisible by 400, or exactly divisible by 4 and not exactly divisible by 100. Given a year you must implement a function that returns true if it's a leap year, or false if it's not.
+/*
 Examples
 isLeap(2020) ➞ true // Exactly divided by 4 and not by 100.
 isLeap(1800) ➞ false // Exactly divided by 4, but is also exactly divided by 100.
 isLeap(2000) ➞ true // Exactly divided by 400.
 isLeap(2019) ➞ false // It can't be exactly divided by 400 or by 4.
-
+*/
+function isLeap(year){
+    if(year % 400 === 0){
+        return true
+    }
+    else if(year % 4 === 0 && year % 100 === 0){
+        return false
+    }
+    else if(year % 4 === 0){
+        return true
+    }
+    else{
+        return false
+    }
+}
+console.log(isLeap(2020));
+console.log(isLeap(1800));
+console.log(isLeap(2000));
+console.log(isLeap(2019));
+/*
 Notes
-
 Exactly divided can be interpreted as the remainder of the division is equal to 0.
 */
